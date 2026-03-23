@@ -79,31 +79,58 @@
   .sent-ok{text-align:center;font-size:13px;color:var(--p186);font-weight:500;margin-top:8px;background:var(--p116l);border:1px solid var(--p116);border-radius:8px;padding:9px;display:none;}
 
   #result{display:none;margin-top:2rem;animation:fadeUp 0.5s ease both;}
-  .result-card{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-  .result-header{background:var(--p151);padding:1.5rem;display:flex;align-items:center;gap:16px;}
-  .result-avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;color:white;flex-shrink:0;}
-  .result-header-info p{font-size:18px;font-weight:500;color:white;font-family:'DM Serif Display',serif;}
-  .result-header-info span{font-size:13px;color:rgba(255,255,255,0.75);}
-  .result-body{padding:1.25rem;}
-  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
-  .rblock{background:var(--p9183);border-radius:var(--radius-sm);padding:10px 14px;border:1px solid var(--border);}
-  .rblock .rl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:5px;}
-  .rblock .rv{font-size:13px;color:var(--text);line-height:1.5;}
+
+  /* ── PERFIL estilo Adrián Olvera ── */
+  .perfil{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-family:'DM Sans',sans-serif;}
+  .perfil-top{display:flex;align-items:flex-start;gap:0;border-bottom:4px solid var(--p116);}
+  .perfil-foto{width:140px;min-width:140px;height:170px;background:#e8e4de;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+  .perfil-foto-initials{font-family:'DM Serif Display',serif;font-size:52px;color:#a09890;font-weight:400;}
+  .perfil-info{padding:1.1rem 1.25rem;flex:1;}
+  .perfil-nombre{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:2px;}
+  .perfil-rol{font-size:13px;color:var(--muted);margin-bottom:12px;}
+  .perfil-seccion{margin-bottom:10px;}
+  .perfil-seccion-titulo{font-size:12px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;}
+  .perfil-seccion-items{font-size:13px;color:var(--text);line-height:1.7;}
+  .perfil-seccion-items span{display:block;}
+
+  .perfil-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);}
+  .perfil-col{padding:1rem 1.1rem;border-right:1px solid var(--border);}
+  .perfil-col:last-child{border-right:none;}
+  .perfil-col-titulo{font-size:12px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
+  .perfil-col-item{font-size:12.5px;color:var(--text);line-height:1.65;}
+  .perfil-col-item span{display:block;}
+
+  .perfil-footer{height:8px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);}
+
   .tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
   .rtag{font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;}
   .rtag.g{background:var(--p151l);color:var(--p151d);}
   .rtag.a{background:var(--p116l);color:var(--p116d);}
   .rtag.r{background:var(--p186l);color:var(--p186);}
   .rtag.b{background:var(--p186l);color:var(--p186);}
-  .pyramid-section{margin-top:10px;background:var(--p151l);border-radius:var(--radius-sm);padding:12px 14px;border:1px solid rgba(247,148,29,0.3);}
-  .pyramid-section .rl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--p151d);margin-bottom:8px;}
+
   .print-btn{width:100%;padding:12px;margin-top:1rem;background:white;border:2px solid var(--p151);border-radius:var(--radius-sm);color:var(--p151d);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;}
   .print-btn:hover{background:var(--p151l);}
+
+  @media(max-width:520px){
+    .perfil-top{flex-direction:column;}
+    .perfil-foto{width:100%;height:120px;}
+    .perfil-cols{grid-template-columns:1fr;}
+    .perfil-col{border-right:none;border-bottom:1px solid var(--border);}
+    .perfil-col:last-child{border-bottom:none;}
+  }
 
   .footer-bar{height:6px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);margin-top:3rem;}
 
   @media(max-width:480px){.row2,.result-grid{grid-template-columns:1fr;}}
-  @media print{.progress-wrap,.cta-btn,.print-btn,.hero,.hero-bar,.estudiante-field,.sending,.sent-ok,.footer-bar{display:none!important;}.section{break-inside:avoid;}#result{display:block!important;}body{background:white;}}
+  @media print{
+    .progress-wrap,.cta-btn,.print-btn,.hero,.hero-bar,.estudiante-field,.sending,.sent-ok,.footer-bar,.section{display:none!important;}
+    #result{display:block!important;}
+    body{background:white;}
+    .perfil{border:none;}
+    .perfil-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .perfil-top,.perfil-cols{break-inside:avoid;}
+  }
 </style>
 </head>
 <body>
@@ -270,35 +297,84 @@
   <div class="sent-ok" id="sentOk">✓ Respuestas enviadas correctamente al profesor</div>
 
   <div id="result">
-    <div class="result-card">
-      <div class="result-header">
-        <div class="result-avatar" id="r-avatar">?</div>
-        <div class="result-header-info">
-          <p id="r-nombre">—</p>
-          <span id="r-sub">—</span>
+    <div class="perfil">
+
+      <!-- Título sección -->
+      <div style="padding:0.9rem 1.25rem 0; font-size:13px; font-weight:500; color:var(--p151); letter-spacing:0.05em; text-transform:uppercase;">Mi Buyer Persona</div>
+
+      <!-- Fila superior: avatar + datos básicos + datos demográficos -->
+      <div class="perfil-top">
+        <div class="perfil-foto">
+          <div class="perfil-foto-initials" id="r-initials">?</div>
+        </div>
+        <div class="perfil-info">
+          <div class="perfil-nombre" id="r-nombre">—</div>
+          <div class="perfil-rol" id="r-rol">—</div>
+
+          <!-- SECCIÓN EMPRENDIMIENTO -->
+          <div style="font-size:10px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.07em;margin:10px 0 3px;border-top:1px solid var(--p151l);padding-top:8px;">Mi emprendimiento</div>
+          <div class="perfil-seccion">
+            <div class="perfil-seccion-titulo">Servicio / producto</div>
+            <div class="perfil-seccion-items" id="r-servicio">—</div>
+          </div>
+          <div class="perfil-seccion">
+            <div class="perfil-seccion-titulo">Problema que resuelve</div>
+            <div class="perfil-seccion-items" id="r-problema">—</div>
+          </div>
+
+          <!-- SECCIÓN DATOS DEMOGRÁFICOS -->
+          <div style="font-size:10px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.07em;margin:10px 0 3px;border-top:1px solid var(--p151l);padding-top:8px;">Datos demográficos</div>
+          <div class="perfil-seccion">
+            <div class="perfil-seccion-items" id="r-demograficos">—</div>
+          </div>
+
+          <!-- OBJETIVOS -->
+          <div class="perfil-seccion">
+            <div class="perfil-seccion-titulo">Objetivos</div>
+            <div class="perfil-seccion-items" id="r-objetivo">—</div>
+          </div>
         </div>
       </div>
-      <div class="result-body">
-        <div class="result-grid">
-          <div class="rblock"><div class="rl">Servicio / producto</div><div class="rv" id="r-servicio">—</div></div>
-          <div class="rblock"><div class="rl">Problema que resuelves</div><div class="rv" id="r-problema">—</div></div>
-          <div class="rblock"><div class="rl">Objetivo del cliente</div><div class="rv" id="r-objetivo">—</div></div>
-          <div class="rblock"><div class="rl">Ingresos estimados</div><div class="rv" id="r-ingresos">—</div></div>
-          <div class="rblock"><div class="rl">Motivaciones</div><div class="rv" id="r-motivacion">—</div></div>
-          <div class="rblock"><div class="rl">Reto principal</div><div class="rv" id="r-reto">—</div></div>
-          <div class="rblock"><div class="rl">Objeciones comunes</div><div class="rv" id="r-objecion">—</div></div>
-          <div class="rblock"><div class="rl">Canales</div><div class="rv" id="r-canal">—</div></div>
+
+      <!-- Columnas inferiores: 4 columnas como el ejemplo -->
+      <div class="perfil-cols">
+        <div class="perfil-col">
+          <div class="perfil-col-titulo">Hobbies e intereses</div>
+          <div class="perfil-col-item" id="r-hobbies">—</div>
+          <div style="margin-top:12px;">
+            <div class="perfil-col-titulo">Motivaciones</div>
+            <div class="perfil-col-item" id="r-motivacion">—</div>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="perfil-col-titulo">Valores de la pirámide</div>
+            <div class="perfil-col-item" id="r-valor">—</div>
+          </div>
         </div>
-        <div id="r-hogar-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Hogar</div><div class="rv" id="r-hogar">—</div></div>
-        <div id="r-hobbies-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Hobbies e intereses</div><div class="rv" id="r-hobbies">—</div></div>
-        <div id="r-temor-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Mayor temor</div><div class="rv" id="r-temor">—</div></div>
-        <div class="pyramid-section">
-          <div class="rl">Valores de la pirámide que conectan con tu solución</div>
-          <div class="tag-row" id="r-valor"></div>
+        <div class="perfil-col">
+          <div class="perfil-col-titulo">Retos</div>
+          <div class="perfil-col-item" id="r-reto">—</div>
+          <div style="margin-top:12px;">
+            <div class="perfil-col-titulo">Canales donde está</div>
+            <div class="perfil-col-item" id="r-canal">—</div>
+          </div>
         </div>
-        <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF 🖨️</button>
+        <div class="perfil-col">
+          <div class="perfil-col-titulo">Objeciones comunes</div>
+          <div class="perfil-col-item" id="r-objecion">—</div>
+          <div style="margin-top:12px;">
+            <div class="perfil-col-titulo">Mayores temores</div>
+            <div class="perfil-col-item" id="r-temor">—</div>
+          </div>
+          <div style="margin-top:12px;" id="r-hogar-wrap">
+            <div class="perfil-col-titulo">Hogar</div>
+            <div class="perfil-col-item" id="r-hogar">—</div>
+          </div>
+        </div>
       </div>
+
+      <div class="perfil-footer"></div>
     </div>
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF 🖨️</button>
   </div>
 
 </div>
@@ -343,52 +419,102 @@ function tags(items, cls) {
   return items.map(function(v){return '<span class="rtag '+cls+'">'+v+'</span>';}).join('');
 }
 
+function listItems(arr) {
+  if (!arr || !arr.length) return '—';
+  return arr.map(function(v){ return '· ' + v; }).join('\n');
+}
+
 function generate() {
-  var nombre   = document.getElementById('nombre').value.trim() || 'Cliente Ideal';
-  var edad     = document.getElementById('edad').value.trim();
-  var ocupacion= document.getElementById('ocupacion').value.trim() || '—';
-  var genero   = document.getElementById('genero').value;
-  var hobbies  = document.getElementById('hobbies').value.trim();
-  var temor    = document.getElementById('temor').value.trim();
-  var nombreEst= document.getElementById('nombreEstudiante').value.trim();
+  var nombre    = document.getElementById('nombre').value.trim() || 'Cliente Ideal';
+  var edad      = document.getElementById('edad').value.trim();
+  var ocupacion = document.getElementById('ocupacion').value.trim() || '';
+  var genero    = document.getElementById('genero').value;
+  var hobbies   = document.getElementById('hobbies').value.trim();
+  var temor     = document.getElementById('temor').value.trim();
+  var nombreEst = document.getElementById('nombreEstudiante').value.trim();
+  var ingresos  = (getChips('ingresos')||[]).join('');
 
-  var initials = nombre.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
-  document.getElementById('r-avatar').textContent = initials || '?';
+  // Initials avatar
+  var initials = nombre.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+  document.getElementById('r-initials').textContent = initials || '?';
+
+  // Nombre y rol
   document.getElementById('r-nombre').textContent = nombre;
-  var sub = ocupacion;
-  if(edad) sub += ', '+edad;
-  if(genero && genero!=='Puede ser cualquiera') sub += ' · '+genero;
-  document.getElementById('r-sub').textContent = sub;
-  document.getElementById('r-servicio').textContent = document.getElementById('servicio').value.trim()||'—';
-  document.getElementById('r-problema').textContent = document.getElementById('problema').value.trim()||'—';
-  document.getElementById('r-objetivo').textContent = document.getElementById('objetivo').value.trim()||'—';
-  document.getElementById('r-reto').textContent     = document.getElementById('reto').value.trim()||'—';
-  document.getElementById('r-ingresos').textContent = (getChips('ingresos')||['—']).join('');
-  document.getElementById('r-motivacion').innerHTML = tags(getChips('motivacion'),'g');
-  document.getElementById('r-objecion').innerHTML   = tags(getChips('objecion'),'r');
-  document.getElementById('r-canal').innerHTML      = tags(getChips('canal'),'b');
+  var rolParts = [];
+  if (ocupacion) rolParts.push(ocupacion);
+  if (edad) rolParts.push(edad);
+  if (genero && genero !== 'Puede ser cualquiera') rolParts.push(genero);
+  document.getElementById('r-rol').textContent = rolParts.join(' · ') || '—';
 
+  // Emprendimiento
+  document.getElementById('r-servicio').textContent = document.getElementById('servicio').value.trim() || '—';
+  document.getElementById('r-problema').textContent = document.getElementById('problema').value.trim() || '—';
+
+  // Datos demográficos — línea a línea como el ejemplo
+  var demo = [];
+  if (genero && genero !== 'Puede ser cualquiera') demo.push(genero + (edad ? ', ' + edad : ''));
+  else if (edad) demo.push(edad);
+  if (ingresos) demo.push('Ingresos: ' + ingresos);
   var hogarChips = getChips('hogar');
-  if(hogarChips){ document.getElementById('r-hogar').innerHTML=tags(hogarChips,'g'); document.getElementById('r-hogar-wrap').style.display='block'; }
-  if(hobbies){ document.getElementById('r-hobbies').textContent=hobbies; document.getElementById('r-hobbies-wrap').style.display='block'; }
-  if(temor){ document.getElementById('r-temor').textContent=temor; document.getElementById('r-temor-wrap').style.display='block'; }
+  if (hogarChips) demo.push(hogarChips.join(', '));
+  document.getElementById('r-demograficos').innerHTML = demo.length
+    ? demo.map(function(d){ return '<span>'+d+'</span>'; }).join('')
+    : '<span>—</span>';
 
-  var valorChips = getChips('valor');
-  document.getElementById('r-valor').innerHTML = valorChips
-    ? valorChips.map(function(v){var c=v.includes('Emocional')?'a':v.includes('Cambio')?'r':'g'; return '<span class="rtag '+c+'">'+v+'</span>';}).join('')
-    : '<span style="color:#888;font-size:13px;">—</span>';
+  // Objetivo
+  document.getElementById('r-objetivo').textContent = document.getElementById('objetivo').value.trim() || '—';
 
+  // Columna 1
+  document.getElementById('r-hobbies').innerHTML = hobbies
+    ? hobbies.split(',').map(function(h){ return '<span>'+h.trim()+'</span>'; }).join('')
+    : '<span>—</span>';
+
+  var motivacion = getChips('motivacion');
+  document.getElementById('r-motivacion').innerHTML = motivacion
+    ? motivacion.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+    : '<span>—</span>';
+
+  var valor = getChips('valor');
+  document.getElementById('r-valor').innerHTML = valor
+    ? valor.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+    : '<span>—</span>';
+
+  // Columna 2
+  document.getElementById('r-reto').textContent = document.getElementById('reto').value.trim() || '—';
+
+  var canal = getChips('canal');
+  document.getElementById('r-canal').innerHTML = canal
+    ? canal.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+    : '<span>—</span>';
+
+  // Columna 3
+  var objecion = getChips('objecion');
+  document.getElementById('r-objecion').innerHTML = objecion
+    ? objecion.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+    : '<span>—</span>';
+
+  document.getElementById('r-temor').textContent = temor || '—';
+
+  var hogarEl = document.getElementById('r-hogar-wrap');
+  if (hogarChips) {
+    document.getElementById('r-hogar').innerHTML = hogarChips.map(function(v){ return '<span>'+v+'</span>'; }).join('');
+  } else {
+    hogarEl.style.display = 'none';
+  }
+
+  // Mostrar
   var result = document.getElementById('result');
   result.style.display = 'block';
   setTimeout(function(){ result.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
 
+  // Enviar a Google Sheets
   document.getElementById('submitBtn').disabled = true;
   document.getElementById('sendingMsg').style.display = 'block';
 
   var payload = {
     nombreEstudiante: nombreEst, nombre: nombre, edad: edad,
     ocupacion: ocupacion, genero: genero,
-    ingresos:  (getChips('ingresos')||[]).join(', '),
+    ingresos:  ingresos,
     hogar:     (getChips('hogar')||[]).join(', '),
     servicio:  document.getElementById('servicio').value.trim(),
     problema:  document.getElementById('problema').value.trim(),
