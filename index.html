@@ -194,7 +194,7 @@
         <span class="chip single" onclick="pickOne(this,'ingresos')">4 – 8 SMMLV</span>
         <span class="chip single" onclick="pickOne(this,'ingresos')">Más de 8 SMMLV</span>
       </div>
-      <div class="smmlv-note">SMMLV 2025 = $1.423.500 COP / mes · 2 SMMLV ≈ $2.85M · 4 SMMLV ≈ $5.7M</div>
+      <div class="smmlv-note">SMMLV 2026 = $1.750.905 COP / mes &nbsp;·&nbsp; 2 SMMLV = $3.501.810 &nbsp;·&nbsp; 4 SMMLV = $7.003.620 &nbsp;·&nbsp; 8 SMMLV = $14.007.240</div>
     </div>
     <div class="q">
       <label>Estado civil / hogar <span>(opcional)</span></label>
@@ -215,51 +215,33 @@
       <textarea id="objetivo" placeholder="Ej: Llevar una vida tranquila con su familia y mascotas saludables…" oninput="updateProgress()"></textarea>
     </div>
     <div class="q">
-      <label>¿Qué lo motiva a buscar tu solución? <span>(puedes elegir varios)</span></label>
-      <div class="chips" id="motivacion-chips">
-        <span class="chip" onclick="toggle(this,'motivacion')">Ahorrar tiempo</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Ganar más dinero</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Reducir estrés</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Crecer profesionalmente</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Mejorar imagen</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Aprender algo nuevo</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Seguridad</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Bienestar propio y familiar</span>
-        <span class="chip" onclick="toggle(this,'motivacion')">Cuidar a otros (mascotas, hijos)</span>
-      </div>
+      <label>¿Qué lo motiva a buscar una solución como la tuya? <span>(descríbelo con tus palabras)</span></label>
+      <textarea id="motivacion-txt" placeholder="Ej: Quiere que su perro viva más años y con mejor salud. Le preocupa que los alimentos procesados tengan ingredientes dañinos y no sepa qué come realmente su mascota…" oninput="updateProgress()"></textarea>
     </div>
     <div class="q">
       <label>Hobbies e intereses <span>(opcional)</span></label>
-      <input type="text" id="hobbies" placeholder="Ej: viajes, cocina saludable, deporte…">
+      <input type="text" id="hobbies" placeholder="Ej: viajes, cocina saludable, deporte, redes sociales…">
     </div>
   </div>
 
   <div class="section">
     <div class="sec-header"><div class="sec-icon">⚠️</div><div class="sec-title">¿Qué le preocupa?</div></div>
     <div class="q">
-      <label>¿Cuál es su mayor reto hoy?</label>
-      <textarea id="reto" placeholder="Ej: No encuentra productos confiables…" oninput="updateProgress()"></textarea>
+      <label>¿Cuál es su mayor reto hoy para resolver ese problema?</label>
+      <textarea id="reto" placeholder="Ej: No encuentra productos confiables, no sabe qué ingredientes son realmente saludables, el precio le parece alto…" oninput="updateProgress()"></textarea>
     </div>
     <div class="q">
-      <label>Objeciones para comprar <span>(puedes elegir varios)</span></label>
-      <div class="chips" id="objecion-chips">
-        <span class="chip" onclick="toggle(this,'objecion')">Es muy caro</span>
-        <span class="chip" onclick="toggle(this,'objecion')">No tengo tiempo</span>
-        <span class="chip" onclick="toggle(this,'objecion')">No confío en la marca</span>
-        <span class="chip" onclick="toggle(this,'objecion')">No lo necesito aún</span>
-        <span class="chip" onclick="toggle(this,'objecion')">Es difícil de usar/preparar</span>
-        <span class="chip" onclick="toggle(this,'objecion')">Ya tengo otra solución</span>
-        <span class="chip" onclick="toggle(this,'objecion')">No sé si funciona</span>
-      </div>
+      <label>¿Qué objeciones tendría para comprar tu producto? <span>(descríbelas)</span></label>
+      <textarea id="objecion-txt" placeholder="Ej: Cree que es muy caro comparado con el concentrado. No conoce la marca y desconfía. No sabe si su perro lo aceptará…"></textarea>
     </div>
     <div class="q">
-      <label>Mayor temor <span>(opcional)</span></label>
-      <input type="text" id="temor" placeholder="Ej: Que su mascota se enferme por mala alimentación…">
+      <label>¿Cuál es su mayor temor relacionado con el problema? <span>(opcional)</span></label>
+      <input type="text" id="temor" placeholder="Ej: Que su mascota se enferme por mala alimentación y tenga que gastar mucho en veterinario…">
     </div>
   </div>
 
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">📱</div><div class="sec-title">¿Cómo te va a encontrar?</div></div>
+    <div class="sec-header"><div class="sec-icon">📱</div><div class="sec-title">¿Cómo y dónde te va a encontrar?</div></div>
     <div class="q">
       <label>¿Dónde pasa más tiempo tu cliente? <span>(puedes elegir varios)</span></label>
       <div class="chips" id="canal-chips">
@@ -290,7 +272,6 @@
         <span class="chip" onclick="toggle(this,'valor')">Cambio de vida – Autorrealización</span>
       </div>
     </div>
-  </div>
 
   <button class="cta-btn" id="submitBtn" onclick="generate()">Ver mi Buyer Persona →</button>
   <div class="sending" id="sendingMsg">Enviando respuestas al profesor… ⏳</div>
@@ -469,29 +450,30 @@ function generate() {
     ? hobbies.split(',').map(function(h){ return '<span>'+h.trim()+'</span>'; }).join('')
     : '<span>—</span>';
 
-  var motivacion = getChips('motivacion');
+  var motivacion = document.getElementById('motivacion-txt').value.trim();
   document.getElementById('r-motivacion').innerHTML = motivacion
-    ? motivacion.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+    ? motivacion.split('\n').filter(function(l){return l.trim();}).map(function(l){return '<span>'+l+'</span>';}).join('')
     : '<span>—</span>';
 
-  var valor = getChips('valor');
-  document.getElementById('r-valor').innerHTML = valor
-    ? valor.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+  var objecion = document.getElementById('objecion-txt').value.trim();
+  document.getElementById('r-objecion').innerHTML = objecion
+    ? objecion.split('\n').filter(function(l){return l.trim();}).map(function(l){return '<span>'+l+'</span>';}).join('')
     : '<span>—</span>';
 
-  // Columna 2
-  document.getElementById('r-reto').textContent = document.getElementById('reto').value.trim() || '—';
-
+  // Canales
   var canal = getChips('canal');
   document.getElementById('r-canal').innerHTML = canal
     ? canal.map(function(v){ return '<span>'+v+'</span>'; }).join('')
     : '<span>—</span>';
 
-  // Columna 3
-  var objecion = getChips('objecion');
-  document.getElementById('r-objecion').innerHTML = objecion
-    ? objecion.map(function(v){ return '<span>'+v+'</span>'; }).join('')
+  // Valores pirámide
+  var valor = getChips('valor');
+  document.getElementById('r-valor').innerHTML = valor
+    ? valor.map(function(v){ return '<span>'+v+'</span>'; }).join('')
     : '<span>—</span>';
+
+  // Reto
+  document.getElementById('r-reto').textContent = document.getElementById('reto').value.trim() || '—';
 
   document.getElementById('r-temor').textContent = temor || '—';
 
@@ -519,10 +501,10 @@ function generate() {
     servicio:  document.getElementById('servicio').value.trim(),
     problema:  document.getElementById('problema').value.trim(),
     objetivo:  document.getElementById('objetivo').value.trim(),
-    motivacion:(getChips('motivacion')||[]).join(', '),
+    motivacion: document.getElementById('motivacion-txt').value.trim(),
     hobbies:   hobbies,
     reto:      document.getElementById('reto').value.trim(),
-    objecion:  (getChips('objecion')||[]).join(', '),
+    objecion:  document.getElementById('objecion-txt').value.trim(),
     temor:     temor,
     canal:     (getChips('canal')||[]).join(', '),
     valor:     (getChips('valor')||[]).join(', ')
