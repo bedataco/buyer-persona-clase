@@ -6,131 +6,137 @@
 <title>Buyer Persona — Ruta UD Emprende</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --p151:  #F7941D; /* Pantone 151 C — Naranja */
-    --p151l: #FEE8C8; /* Pantone 151 C tint */
-    --p151d: #D4750A; /* Pantone 151 C shade */
-    --p186:  #C8102E; /* Pantone 186 C — Rojo */
-    --p186l: #FFE0E5;
-    --p116:  #FFC72C; /* Pantone 116 C — Dorado */
-    --p116d: #8B6400;
-    --p116l: #FFF5CC;
-    --p9183: #FDF3E3; /* Pantone 9183 C — Crema */
-    --white: #FFFFFF;
-    --text:  #1A1A18;
-    --muted: #6B6560;
-    --border: rgba(0,0,0,0.1);
-    --radius: 14px;
-    --radius-sm: 8px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'DM Sans',sans-serif;background:var(--p9183);color:var(--text);font-size:15px;line-height:1.6;}
+:root{
+  --p151:#F7941D;--p151l:#FEE8C8;--p151d:#D4750A;
+  --p186:#C8102E;--p186l:#FFE0E5;
+  --p116:#FFC72C;--p116d:#8B6400;--p116l:#FFF5CC;
+  --p9183:#FDF3E3;--white:#FFFFFF;
+  --text:#1A1A18;--muted:#6B6560;--border:rgba(0,0,0,0.09);
+  --radius:14px;--radius-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--p9183);color:var(--text);font-size:15px;line-height:1.6;}
 
-  .hero{background:var(--p151);padding:2.8rem 1.5rem 2.2rem;text-align:center;position:relative;overflow:hidden;}
-  .hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08);}
-  .hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:130px;height:130px;border-radius:50%;background:rgba(200,16,46,0.15);}
-  .hero-tag{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;margin-bottom:1rem;color:rgba(255,255,255,0.9);}
-  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:0.6rem;color:white;}
-  .hero h1 em{font-style:italic;color:var(--p116);}
-  .hero p{font-size:14px;color:rgba(255,255,255,0.8);max-width:420px;margin:0 auto;}
-  .hero-bar{height:6px;background:linear-gradient(90deg,var(--p186) 0%,var(--p116) 100%);}
+.hero{background:var(--p151);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.07);}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;border-radius:50%;background:rgba(200,16,46,0.12);}
+.hero-tag{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;margin-bottom:0.75rem;color:rgba(255,255,255,0.9);}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;line-height:1.15;margin-bottom:0.5rem;color:white;}
+.hero h1 em{font-style:italic;color:var(--p116);}
+.hero p{font-size:13px;color:rgba(255,255,255,0.8);max-width:400px;margin:0 auto;}
+.hero-bar{height:5px;background:linear-gradient(90deg,var(--p186) 0%,var(--p116) 100%);}
 
-  .progress-wrap{background:white;border-bottom:1px solid var(--border);padding:0.9rem 1.5rem;position:sticky;top:0;z-index:100;}
-  .progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
-  .progress-label{font-size:12px;color:var(--muted);font-weight:500;}
-  .progress-pct{font-size:13px;font-weight:500;color:var(--p151);}
-  .progress-track{height:5px;background:#F5ECD8;border-radius:3px;}
-  .progress-fill{height:5px;background:var(--p151);border-radius:3px;transition:width 0.4s ease;width:0%;}
+.progress-wrap{background:white;border-bottom:1px solid var(--border);padding:0.85rem 1.5rem;position:sticky;top:0;z-index:100;}
+.progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.progress-label{font-size:12px;color:var(--muted);font-weight:500;}
+.progress-pct{font-size:13px;font-weight:500;color:var(--p151);}
+.progress-track{height:5px;background:#F0E8D8;border-radius:3px;}
+.progress-fill{height:5px;background:var(--p151);border-radius:3px;transition:width 0.4s ease;width:0%;}
 
-  .main{max-width:680px;margin:0 auto;padding:2rem 1.25rem 4rem;}
+.main{max-width:680px;margin:0 auto;padding:2rem 1.25rem 4rem;}
 
-  .section{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;animation:fadeUp 0.4s ease both;}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-  .sec-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--p151l);}
-  .sec-icon{width:34px;height:34px;border-radius:8px;background:var(--p151l);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-  .sec-title{font-size:13px;font-weight:500;color:var(--p151d);text-transform:uppercase;letter-spacing:0.07em;}
+.section{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.1rem;animation:fadeUp 0.4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.section:nth-child(2){animation-delay:0.05s}
+.section:nth-child(3){animation-delay:0.1s}
+.section:nth-child(4){animation-delay:0.15s}
+.section:nth-child(5){animation-delay:0.2s}
+.section:nth-child(6){animation-delay:0.25s}
+.section:nth-child(7){animation-delay:0.3s}
 
-  .q{margin-bottom:1.25rem;}
-  .q:last-child{margin-bottom:0;}
-  .q label{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;}
-  .q label span{font-weight:400;color:var(--muted);font-size:13px;}
-  input[type="text"],textarea,select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:white;transition:border-color 0.2s;outline:none;}
-  input[type="text"]:focus,textarea:focus,select:focus{border-color:var(--p151);box-shadow:0 0 0 3px rgba(247,148,29,0.12);}
-  textarea{resize:vertical;min-height:72px;line-height:1.6;}
-  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .smmlv-note{font-size:11px;color:var(--muted);margin-top:6px;}
+.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem;padding-bottom:0.7rem;border-bottom:2px solid var(--p151l);}
+.sec-num{width:26px;height:26px;border-radius:50%;background:var(--p151);color:white;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sec-title{font-size:13px;font-weight:500;color:var(--p151d);text-transform:uppercase;letter-spacing:0.07em;}
 
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;}
-  .chip{padding:6px 14px;border-radius:20px;font-size:13px;border:1.5px solid var(--border);background:#F5ECD8;color:var(--muted);cursor:pointer;transition:all 0.15s;user-select:none;font-family:'DM Sans',sans-serif;}
-  .chip:hover{border-color:var(--p151);color:var(--p151d);background:var(--p151l);}
-  .chip.on{background:var(--p151l);border-color:var(--p151);color:var(--p151d);font-weight:500;}
-  .chip.single.on{background:var(--p151);border-color:var(--p151);color:white;}
+.q{margin-bottom:1.1rem;}
+.q:last-child{margin-bottom:0;}
+.q label{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:7px;}
+.q label span{font-weight:400;color:var(--muted);font-size:12px;}
+input[type="text"],textarea,select{width:100%;padding:10px 13px;border:1.5px solid rgba(0,0,0,0.12);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:white;transition:border-color 0.2s;outline:none;}
+input[type="text"]:focus,textarea:focus,select:focus{border-color:var(--p151);box-shadow:0 0 0 3px rgba(247,148,29,0.1);}
+textarea{resize:vertical;min-height:68px;line-height:1.6;}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.smmlv-note{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5;}
 
-  .estudiante-field{background:var(--p116l);border:2px solid var(--p116);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.25rem;}
-  .estudiante-badge{display:inline-flex;align-items:center;gap:5px;background:var(--p186);color:white;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
-  .estudiante-field label{font-size:14px;font-weight:500;color:var(--p116d);display:block;margin-bottom:8px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+.chip{padding:5px 13px;border-radius:20px;font-size:13px;border:1.5px solid rgba(0,0,0,0.1);background:#F5ECD8;color:var(--muted);cursor:pointer;transition:all 0.15s;user-select:none;}
+.chip:hover{border-color:var(--p151);color:var(--p151d);background:var(--p151l);}
+.chip.on{background:var(--p151l);border-color:var(--p151);color:var(--p151d);font-weight:500;}
+.chip.single.on{background:var(--p151);border-color:var(--p151);color:white;}
 
-  .cta-btn{width:100%;padding:15px;background:var(--p151);color:white;border:none;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:1.25rem;}
-  .cta-btn:hover{background:var(--p186);transform:translateY(-1px);}
-  .cta-btn:disabled{background:#aaa;cursor:not-allowed;transform:none;}
-  .sending{text-align:center;font-size:13px;color:var(--p151d);margin-top:8px;display:none;}
-  .sent-ok{text-align:center;font-size:13px;color:var(--p186);font-weight:500;margin-top:8px;background:var(--p116l);border:1px solid var(--p116);border-radius:8px;padding:9px;display:none;}
+.est-field{background:var(--p116l);border:2px solid var(--p116);border-radius:var(--radius);padding:1.1rem 1.4rem;margin-bottom:1.1rem;}
+.est-badge{display:inline-block;background:var(--p186);color:white;font-size:11px;font-weight:500;padding:2px 10px;border-radius:20px;margin-bottom:8px;}
+.est-field label{font-size:14px;font-weight:500;color:var(--p116d);display:block;margin-bottom:7px;}
 
-  #result{display:none;margin-top:2rem;animation:fadeUp 0.5s ease both;}
+.cta-btn{width:100%;padding:14px;background:var(--p151);color:white;border:none;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:1.25rem;}
+.cta-btn:hover{background:var(--p186);transform:translateY(-1px);}
+.cta-btn:disabled{background:#aaa;cursor:not-allowed;transform:none;}
+.sending{text-align:center;font-size:13px;color:var(--p151d);margin-top:8px;display:none;}
+.sent-ok{text-align:center;font-size:13px;color:var(--p186);font-weight:500;margin-top:8px;background:var(--p116l);border:1px solid var(--p116);border-radius:8px;padding:9px;display:none;}
 
-  /* ── PERFIL estilo Adrián Olvera ── */
-  .perfil{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-family:'DM Sans',sans-serif;}
-  .perfil-top{display:flex;align-items:flex-start;gap:0;border-bottom:4px solid var(--p116);}
-  .perfil-foto{width:140px;min-width:140px;height:170px;background:#e8e4de;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
-  .perfil-foto-initials{font-family:'DM Serif Display',serif;font-size:52px;color:#a09890;font-weight:400;}
-  .perfil-info{padding:1.1rem 1.25rem;flex:1;}
-  .perfil-nombre{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:2px;}
-  .perfil-rol{font-size:13px;color:var(--muted);margin-bottom:12px;}
-  .perfil-seccion{margin-bottom:10px;}
-  .perfil-seccion-titulo{font-size:12px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;}
-  .perfil-seccion-items{font-size:13px;color:var(--text);line-height:1.7;}
-  .perfil-seccion-items span{display:block;}
+/* ══ PERFIL RESULTADO estilo Adrián Olvera ══ */
+#result{display:none;margin-top:2rem;animation:fadeUp 0.5s ease both;}
 
-  .perfil-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);}
-  .perfil-col{padding:1rem 1.1rem;border-right:1px solid var(--border);}
-  .perfil-col:last-child{border-right:none;}
-  .perfil-col-titulo{font-size:12px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
-  .perfil-col-item{font-size:12.5px;color:var(--text);line-height:1.65;}
-  .perfil-col-item span{display:block;}
+.perfil-wrap{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
 
-  .perfil-footer{height:8px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);}
+/* Ficha emprendimiento */
+.emprendimiento-ficha{background:var(--p151);padding:1rem 1.5rem;display:flex;align-items:flex-start;gap:16px;}
+.emp-badge{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.35);border-radius:6px;padding:2px 10px;font-size:10px;font-weight:500;color:white;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:6px;display:inline-block;}
+.emp-nombre{font-size:17px;font-weight:500;color:white;margin-bottom:4px;}
+.emp-problema{font-size:12px;color:rgba(255,255,255,0.8);line-height:1.5;}
+.emp-icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;margin-top:4px;}
 
-  .tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
-  .rtag{font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;}
-  .rtag.g{background:var(--p151l);color:var(--p151d);}
-  .rtag.a{background:var(--p116l);color:var(--p116d);}
-  .rtag.r{background:var(--p186l);color:var(--p186);}
-  .rtag.b{background:var(--p186l);color:var(--p186);}
+/* Título perfil */
+.perfil-titulo{padding:0.75rem 1.5rem 0;font-size:11px;font-weight:500;color:var(--p151);letter-spacing:0.08em;text-transform:uppercase;border-top:3px solid var(--p116);}
 
-  .print-btn{width:100%;padding:12px;margin-top:1rem;background:white;border:2px solid var(--p151);border-radius:var(--radius-sm);color:var(--p151d);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;}
-  .print-btn:hover{background:var(--p151l);}
+/* Fila superior */
+.perfil-top{display:flex;align-items:flex-start;border-bottom:1px solid var(--border);}
+.perfil-foto{width:150px;min-width:150px;background:#ECEAE5;display:flex;align-items:center;justify-content:center;align-self:stretch;}
+.perfil-foto-initials{font-family:'DM Serif Display',serif;font-size:56px;color:#B0A898;font-weight:400;}
+.perfil-main{padding:1.1rem 1.4rem;flex:1;}
+.perfil-nombre{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--text);margin-bottom:2px;}
+.perfil-rol{font-size:13px;color:var(--muted);margin-bottom:1rem;font-style:italic;}
 
-  @media(max-width:520px){
-    .perfil-top{flex-direction:column;}
-    .perfil-foto{width:100%;height:120px;}
-    .perfil-cols{grid-template-columns:1fr;}
-    .perfil-col{border-right:none;border-bottom:1px solid var(--border);}
-    .perfil-col:last-child{border-bottom:none;}
-  }
+.p-sec{margin-bottom:0.85rem;}
+.p-sec-t{font-size:11px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.p-sec-v{font-size:13px;color:var(--text);line-height:1.65;}
+.p-sec-v span{display:block;}
 
-  .footer-bar{height:6px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);margin-top:3rem;}
+/* Columnas inferiores */
+.perfil-cols{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--border);}
+.p-col{padding:1rem 1.1rem;border-right:1px solid var(--border);}
+.p-col:last-child{border-right:none;}
+.p-col-t{font-size:11px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;}
+.p-col-v{font-size:12.5px;color:var(--text);line-height:1.65;}
+.p-col-v span{display:block;}
+.p-col-gap{margin-top:10px;}
 
-  @media(max-width:480px){.row2,.result-grid{grid-template-columns:1fr;}}
-  @media print{
-    .progress-wrap,.cta-btn,.print-btn,.hero,.hero-bar,.estudiante-field,.sending,.sent-ok,.footer-bar,.section{display:none!important;}
-    #result{display:block!important;}
-    body{background:white;}
-    .perfil{border:none;}
-    .perfil-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-    .perfil-top,.perfil-cols{break-inside:avoid;}
-  }
+/* Barra footer */
+.perfil-footer{height:7px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);}
+
+.print-btn{width:100%;padding:12px;margin-top:1rem;background:white;border:2px solid var(--p151);border-radius:var(--radius-sm);color:var(--p151d);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;}
+.print-btn:hover{background:var(--p151l);}
+
+.footer-bar{height:5px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);margin-top:3rem;}
+
+@media(max-width:520px){
+  .row2,.row3{grid-template-columns:1fr;}
+  .perfil-top{flex-direction:column;}
+  .perfil-foto{width:100%;height:100px;}
+  .perfil-cols{grid-template-columns:1fr;}
+  .p-col{border-right:none;border-bottom:1px solid var(--border);}
+  .p-col:last-child{border-bottom:none;}
+}
+@media print{
+  .progress-wrap,.cta-btn,.print-btn,.hero,.hero-bar,.est-field,.sending,.sent-ok,.footer-bar,.section{display:none!important;}
+  #result{display:block!important;}
+  body{background:white;}
+  .perfil-wrap{border:none;}
+  .emprendimiento-ficha,.perfil-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
 </style>
 </head>
 <body>
@@ -138,7 +144,7 @@
 <div class="hero">
   <div class="hero-tag">Ruta UD Emprende · Módulo 4</div>
   <h1>Define tu<br><em>Buyer Persona</em></h1>
-  <p>Responde pensando en tu emprendimiento. Al final verás el perfil completo de tu cliente ideal.</p>
+  <p>Responde pensando en tu cliente ideal. Al final verás su perfil completo.</p>
 </div>
 <div class="hero-bar"></div>
 
@@ -152,203 +158,250 @@
 
 <div class="main">
 
-  <div class="estudiante-field">
-    <div class="estudiante-badge">Para el profesor</div>
+  <div class="est-field">
+    <div class="est-badge">Para el profesor</div>
     <label>Tu nombre completo (estudiante)</label>
-    <input type="text" id="nombreEstudiante" placeholder="Ej: Valentina Torres Mora" oninput="updateProgress()">
+    <input type="text" id="nombreEstudiante" placeholder="Ej: Valentina Torres Mora" oninput="prog()">
   </div>
 
+  <!-- 1. EMPRENDIMIENTO -->
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">💡</div><div class="sec-title">Tu emprendimiento</div></div>
+    <div class="sec-header"><div class="sec-num">1</div><div class="sec-title">Tu emprendimiento</div></div>
     <div class="q">
       <label>¿Cuál es el nombre o idea de tu servicio/producto?</label>
-      <input type="text" id="servicio" placeholder="Ej: comida natural para perros, app de inventarios…" oninput="updateProgress()">
+      <input type="text" id="servicio" placeholder="Ej: Comida natural para perros" oninput="prog()">
     </div>
     <div class="q">
       <label>¿Qué problema principal resuelve? <span>(sé específico)</span></label>
-      <textarea id="problema" placeholder="Ej: Los perros que comen alimentos procesados tienden a tener problemas de salud…" oninput="updateProgress()"></textarea>
+      <textarea id="problema" placeholder="Ej: Los perros que comen alimentos procesados tienden a tener problemas de salud y menor expectativa de vida. Los dueños no saben qué ingredientes contiene realmente el concentrado…" oninput="prog()"></textarea>
     </div>
   </div>
 
+  <!-- 2. QUIÉN ES TU CLIENTE -->
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">👤</div><div class="sec-title">¿Quién es tu cliente ideal?</div></div>
+    <div class="sec-header"><div class="sec-num">2</div><div class="sec-title">¿Quién es tu cliente ideal?</div></div>
     <div class="row2">
-      <div class="q"><label>Nombre ficticio</label><input type="text" id="nombre" placeholder="Ej: Maria Helena" oninput="updateProgress()"></div>
+      <div class="q"><label>Nombre ficticio del cliente</label><input type="text" id="nombre" placeholder="Ej: Maria Helena" oninput="prog()"></div>
       <div class="q"><label>Edad aproximada</label><input type="text" id="edad" placeholder="Ej: 38 años"></div>
     </div>
     <div class="row2">
-      <div class="q"><label>Ocupación o rol</label><input type="text" id="ocupacion" placeholder="Ej: Líder de Cartera" oninput="updateProgress()"></div>
+      <div class="q"><label>Ocupación o cargo</label><input type="text" id="ocupacion" placeholder="Ej: Líder de Cartera" oninput="prog()"></div>
       <div class="q"><label>Género</label>
-        <select id="genero" onchange="updateProgress()">
+        <select id="genero">
           <option value="">Selecciona…</option>
           <option>Hombre</option><option>Mujer</option><option>Puede ser cualquiera</option>
         </select>
       </div>
     </div>
+    <div class="row2">
+      <div class="q">
+        <label>Estado civil</label>
+        <div class="chips" id="civil-chips">
+          <span class="chip single" onclick="one(this,'civil')">Soltero/a</span>
+          <span class="chip single" onclick="one(this,'civil')">En pareja</span>
+          <span class="chip single" onclick="one(this,'civil')">Casado/a</span>
+          <span class="chip single" onclick="one(this,'civil')">Divorciado/a</span>
+        </div>
+      </div>
+      <div class="q">
+        <label>¿Tiene hijos?</label>
+        <div class="chips" id="hijos-chips">
+          <span class="chip single" onclick="one(this,'hijos')">Sin hijos</span>
+          <span class="chip single" onclick="one(this,'hijos')">1 hijo</span>
+          <span class="chip single" onclick="one(this,'hijos')">2–3 hijos</span>
+          <span class="chip single" onclick="one(this,'hijos')">Más de 3</span>
+        </div>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="q">
+        <label>Tipo de vivienda</label>
+        <div class="chips" id="vivienda-chips">
+          <span class="chip single" onclick="one(this,'vivienda')">Casa propia</span>
+          <span class="chip single" onclick="one(this,'vivienda')">Arrendada</span>
+          <span class="chip single" onclick="one(this,'vivienda')">Familiar</span>
+        </div>
+      </div>
+      <div class="q">
+        <label>Ciudad / región</label>
+        <input type="text" id="ciudad" placeholder="Ej: Bogotá, Medellín, Colombia…">
+      </div>
+    </div>
     <div class="q">
-      <label>Nivel de ingresos <span>(salarios mínimos colombianos)</span></label>
+      <label>Nivel de ingresos <span>(SMMLV 2026 = $1.750.905 / mes)</span></label>
       <div class="chips" id="ingresos-chips">
-        <span class="chip single" onclick="pickOne(this,'ingresos')">Menos de 1 SMMLV</span>
-        <span class="chip single" onclick="pickOne(this,'ingresos')">1 – 2 SMMLV</span>
-        <span class="chip single" onclick="pickOne(this,'ingresos')">2 – 4 SMMLV</span>
-        <span class="chip single" onclick="pickOne(this,'ingresos')">4 – 8 SMMLV</span>
-        <span class="chip single" onclick="pickOne(this,'ingresos')">Más de 8 SMMLV</span>
+        <span class="chip single" onclick="one(this,'ingresos')">Menos de 1 SMMLV · &lt;$1.75M</span>
+        <span class="chip single" onclick="one(this,'ingresos')">1–2 SMMLV · $1.75M–$3.5M</span>
+        <span class="chip single" onclick="one(this,'ingresos')">2–4 SMMLV · $3.5M–$7M</span>
+        <span class="chip single" onclick="one(this,'ingresos')">4–8 SMMLV · $7M–$14M</span>
+        <span class="chip single" onclick="one(this,'ingresos')">Más de 8 SMMLV · +$14M</span>
       </div>
-      <div class="smmlv-note">SMMLV 2026 = $1.750.905 COP / mes &nbsp;·&nbsp; 2 SMMLV = $3.501.810 &nbsp;·&nbsp; 4 SMMLV = $7.003.620 &nbsp;·&nbsp; 8 SMMLV = $14.007.240</div>
-    </div>
-    <div class="q">
-      <label>Estado civil / hogar <span>(opcional)</span></label>
-      <div class="chips" id="hogar-chips">
-        <span class="chip single" onclick="pickOne(this,'hogar')">Soltero/a</span>
-        <span class="chip single" onclick="pickOne(this,'hogar')">En pareja</span>
-        <span class="chip single" onclick="pickOne(this,'hogar')">Casado/a con hijos</span>
-        <span class="chip single" onclick="pickOne(this,'hogar')">Casado/a sin hijos</span>
-        <span class="chip single" onclick="pickOne(this,'hogar')">Puede ser cualquiera</span>
-      </div>
+      <div class="smmlv-note">Auxilio de transporte 2026 = $249.095 &nbsp;·&nbsp; Decreto 1469 del 29 de diciembre de 2025</div>
     </div>
   </div>
 
+  <!-- 3. OBJETIVOS -->
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">🎯</div><div class="sec-title">¿Qué quiere lograr?</div></div>
+    <div class="sec-header"><div class="sec-num">3</div><div class="sec-title">Objetivos del cliente</div></div>
     <div class="q">
-      <label>¿Cuál es su objetivo principal?</label>
-      <textarea id="objetivo" placeholder="Ej: Llevar una vida tranquila con su familia y mascotas saludables…" oninput="updateProgress()"></textarea>
+      <label>¿Cuál es su objetivo profesional principal?</label>
+      <textarea id="obj-profesional" placeholder="Ej: Obtener una promoción en los próximos 2 años, llegar a un ingreso mensual de $12 millones, aportar mayor valor en su empresa…" oninput="prog()"></textarea>
     </div>
     <div class="q">
-      <label>¿Qué lo motiva a buscar una solución como la tuya? <span>(descríbelo con tus palabras)</span></label>
-      <textarea id="motivacion-txt" placeholder="Ej: Quiere que su perro viva más años y con mejor salud. Le preocupa que los alimentos procesados tengan ingredientes dañinos y no sepa qué come realmente su mascota…" oninput="updateProgress()"></textarea>
-    </div>
-    <div class="q">
-      <label>Hobbies e intereses <span>(opcional)</span></label>
-      <input type="text" id="hobbies" placeholder="Ej: viajes, cocina saludable, deporte, redes sociales…">
+      <label>¿Cuál es su objetivo personal o de vida?</label>
+      <textarea id="obj-personal" placeholder="Ej: Llevar una vida tranquila con su familia, tener más tiempo libre, cuidar la salud de sus mascotas, viajar con su pareja…"></textarea>
     </div>
   </div>
 
+  <!-- 4. RETOS -->
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">⚠️</div><div class="sec-title">¿Qué le preocupa?</div></div>
+    <div class="sec-header"><div class="sec-num">4</div><div class="sec-title">Retos del cliente</div></div>
     <div class="q">
-      <label>¿Cuál es su mayor reto hoy para resolver ese problema?</label>
-      <textarea id="reto" placeholder="Ej: No encuentra productos confiables, no sabe qué ingredientes son realmente saludables, el precio le parece alto…" oninput="updateProgress()"></textarea>
+      <label>¿Cuál es su mayor reto profesional hoy?</label>
+      <textarea id="reto-profesional" placeholder="Ej: Su jefe es el decisor financiero y tiene poco poder de autorización. Necesita mayor credibilidad en la empresa. Tiene pocas herramientas de análisis…" oninput="prog()"></textarea>
     </div>
     <div class="q">
-      <label>¿Qué objeciones tendría para comprar tu producto? <span>(descríbelas)</span></label>
-      <textarea id="objecion-txt" placeholder="Ej: Cree que es muy caro comparado con el concentrado. No conoce la marca y desconfía. No sabe si su perro lo aceptará…"></textarea>
-    </div>
-    <div class="q">
-      <label>¿Cuál es su mayor temor relacionado con el problema? <span>(opcional)</span></label>
-      <input type="text" id="temor" placeholder="Ej: Que su mascota se enferme por mala alimentación y tenga que gastar mucho en veterinario…">
+      <label>¿Cuál es su mayor reto personal relacionado con el problema que resuelves?</label>
+      <textarea id="reto-personal" placeholder="Ej: No encuentra productos confiables de comida natural. No sabe qué ingredientes son realmente saludables para su perro. El precio le parece alto…"></textarea>
     </div>
   </div>
 
+  <!-- 5. HOBBIES -->
   <div class="section">
-    <div class="sec-header"><div class="sec-icon">📱</div><div class="sec-title">¿Cómo y dónde te va a encontrar?</div></div>
+    <div class="sec-header"><div class="sec-num">5</div><div class="sec-title">Hobbies e intereses</div></div>
     <div class="q">
-      <label>¿Dónde pasa más tiempo tu cliente? <span>(puedes elegir varios)</span></label>
+      <label>¿Qué hace en su tiempo libre? <span>(separa con comas)</span></label>
+      <input type="text" id="hobbies" placeholder="Ej: Correr en maratones, fútbol americano, vino, viajar, desayunar con amigos…">
+    </div>
+    <div class="q">
+      <label>¿Qué lo motiva a buscar una solución como la tuya? <span>(con tus propias palabras)</span></label>
+      <textarea id="motivacion" placeholder="Ej: Quiere que su perro viva más y con mejor calidad de vida. Le preocupa que los concentrados tengan químicos dañinos. Considera a su mascota parte de la familia…"></textarea>
+    </div>
+  </div>
+
+  <!-- 6. OBJECIONES Y TEMORES -->
+  <div class="section">
+    <div class="sec-header"><div class="sec-num">6</div><div class="sec-title">Objeciones comunes y mayores temores</div></div>
+    <div class="q">
+      <label>¿Qué objeciones tendría para comprar tu producto? <span>(una por línea)</span></label>
+      <textarea id="objeciones" placeholder="Soy el más joven en la empresa&#10;No logro que me autoricen proyectos internos&#10;En las juntas poco me toman en cuenta"></textarea>
+    </div>
+    <div class="q">
+      <label>¿Cuáles son sus mayores temores en general? <span>(una por línea)</span></label>
+      <textarea id="temores" placeholder="Quedarse estancado en la empresa&#10;Ahorrar para su retiro&#10;Poco tiempo en familia&#10;La vida pasa demasiado rápido"></textarea>
+    </div>
+  </div>
+
+  <!-- 7. CANALES Y VALORES -->
+  <div class="section">
+    <div class="sec-header"><div class="sec-num">7</div><div class="sec-title">¿Cómo y dónde te va a encontrar?</div></div>
+    <div class="q">
+      <label>¿En qué redes o canales pasa más tiempo? <span>(según su edad y perfil)</span></label>
       <div class="chips" id="canal-chips">
-        <span class="chip" onclick="toggle(this,'canal')">Instagram</span>
-        <span class="chip" onclick="toggle(this,'canal')">LinkedIn</span>
-        <span class="chip" onclick="toggle(this,'canal')">WhatsApp</span>
-        <span class="chip" onclick="toggle(this,'canal')">Facebook</span>
-        <span class="chip" onclick="toggle(this,'canal')">TikTok</span>
-        <span class="chip" onclick="toggle(this,'canal')">Google / búsquedas</span>
-        <span class="chip" onclick="toggle(this,'canal')">YouTube</span>
-        <span class="chip" onclick="toggle(this,'canal')">Email</span>
-        <span class="chip" onclick="toggle(this,'canal')">Eventos / ferias</span>
-        <span class="chip" onclick="toggle(this,'canal')">Recomendaciones boca a boca</span>
+        <span class="chip" onclick="tog(this,'canal')">Instagram</span>
+        <span class="chip" onclick="tog(this,'canal')">LinkedIn</span>
+        <span class="chip" onclick="tog(this,'canal')">WhatsApp</span>
+        <span class="chip" onclick="tog(this,'canal')">Facebook</span>
+        <span class="chip" onclick="tog(this,'canal')">TikTok</span>
+        <span class="chip" onclick="tog(this,'canal')">Google / búsquedas</span>
+        <span class="chip" onclick="tog(this,'canal')">YouTube</span>
+        <span class="chip" onclick="tog(this,'canal')">Eventos / ferias</span>
+        <span class="chip" onclick="tog(this,'canal')">Boca a boca</span>
       </div>
     </div>
     <div class="q">
-      <label>¿Qué valor de la pirámide conecta con tu solución? <span>(puedes elegir varios)</span></label>
+      <label>¿Qué valor de la pirámide conecta más con tu solución?</label>
       <div class="chips" id="valor-chips">
-        <span class="chip" onclick="toggle(this,'valor')">Funcional – Ahorra tiempo</span>
-        <span class="chip" onclick="toggle(this,'valor')">Funcional – Reduce costo</span>
-        <span class="chip" onclick="toggle(this,'valor')">Funcional – Simplifica</span>
-        <span class="chip" onclick="toggle(this,'valor')">Funcional – Organiza</span>
-        <span class="chip" onclick="toggle(this,'valor')">Funcional – Calidad</span>
-        <span class="chip" onclick="toggle(this,'valor')">Emocional – Reduce ansiedad</span>
-        <span class="chip" onclick="toggle(this,'valor')">Emocional – Bienestar</span>
-        <span class="chip" onclick="toggle(this,'valor')">Emocional – Me premia</span>
-        <span class="chip" onclick="toggle(this,'valor')">Cambio de vida – Motivación</span>
-        <span class="chip" onclick="toggle(this,'valor')">Cambio de vida – Autorrealización</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Ahorra tiempo</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Reduce costo</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Calidad</span>
+        <span class="chip" onclick="tog(this,'valor')">Emocional – Reduce ansiedad</span>
+        <span class="chip" onclick="tog(this,'valor')">Emocional – Bienestar</span>
+        <span class="chip" onclick="tog(this,'valor')">Cambio de vida – Motivación</span>
+        <span class="chip" onclick="tog(this,'valor')">Cambio de vida – Autorrealización</span>
       </div>
     </div>
+  </div>
 
   <button class="cta-btn" id="submitBtn" onclick="generate()">Ver mi Buyer Persona →</button>
   <div class="sending" id="sendingMsg">Enviando respuestas al profesor… ⏳</div>
   <div class="sent-ok" id="sentOk">✓ Respuestas enviadas correctamente al profesor</div>
 
+  <!-- RESULTADO -->
   <div id="result">
-    <div class="perfil">
+    <div class="perfil-wrap">
 
-      <!-- Título sección -->
-      <div style="padding:0.9rem 1.25rem 0; font-size:13px; font-weight:500; color:var(--p151); letter-spacing:0.05em; text-transform:uppercase;">Mi Buyer Persona</div>
+      <!-- FICHA EMPRENDIMIENTO -->
+      <div class="emprendimiento-ficha">
+        <div class="emp-icon">💡</div>
+        <div>
+          <div class="emp-badge">Mi emprendimiento</div>
+          <div class="emp-nombre" id="r-servicio">—</div>
+          <div class="emp-problema" id="r-problema">—</div>
+        </div>
+      </div>
 
-      <!-- Fila superior: avatar + datos básicos + datos demográficos -->
+      <!-- TÍTULO PERFIL -->
+      <div class="perfil-titulo">Perfil del Buyer Persona</div>
+
+      <!-- FILA SUPERIOR -->
       <div class="perfil-top">
         <div class="perfil-foto">
           <div class="perfil-foto-initials" id="r-initials">?</div>
         </div>
-        <div class="perfil-info">
+        <div class="perfil-main">
           <div class="perfil-nombre" id="r-nombre">—</div>
           <div class="perfil-rol" id="r-rol">—</div>
 
-          <!-- SECCIÓN EMPRENDIMIENTO -->
-          <div style="font-size:10px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.07em;margin:10px 0 3px;border-top:1px solid var(--p151l);padding-top:8px;">Mi emprendimiento</div>
-          <div class="perfil-seccion">
-            <div class="perfil-seccion-titulo">Servicio / producto</div>
-            <div class="perfil-seccion-items" id="r-servicio">—</div>
-          </div>
-          <div class="perfil-seccion">
-            <div class="perfil-seccion-titulo">Problema que resuelve</div>
-            <div class="perfil-seccion-items" id="r-problema">—</div>
+          <div class="p-sec">
+            <div class="p-sec-t">Datos demográficos</div>
+            <div class="p-sec-v" id="r-demo">—</div>
           </div>
 
-          <!-- SECCIÓN DATOS DEMOGRÁFICOS -->
-          <div style="font-size:10px;font-weight:500;color:var(--p151);text-transform:uppercase;letter-spacing:0.07em;margin:10px 0 3px;border-top:1px solid var(--p151l);padding-top:8px;">Datos demográficos</div>
-          <div class="perfil-seccion">
-            <div class="perfil-seccion-items" id="r-demograficos">—</div>
+          <div class="p-sec">
+            <div class="p-sec-t">Objetivos profesionales</div>
+            <div class="p-sec-v" id="r-obj-prof">—</div>
           </div>
 
-          <!-- OBJETIVOS -->
-          <div class="perfil-seccion">
-            <div class="perfil-seccion-titulo">Objetivos</div>
-            <div class="perfil-seccion-items" id="r-objetivo">—</div>
+          <div class="p-sec">
+            <div class="p-sec-t">Objetivos personales</div>
+            <div class="p-sec-v" id="r-obj-pers">—</div>
           </div>
         </div>
       </div>
 
-      <!-- Columnas inferiores: 4 columnas como el ejemplo -->
+      <!-- COLUMNAS INFERIORES -->
       <div class="perfil-cols">
-        <div class="perfil-col">
-          <div class="perfil-col-titulo">Hobbies e intereses</div>
-          <div class="perfil-col-item" id="r-hobbies">—</div>
-          <div style="margin-top:12px;">
-            <div class="perfil-col-titulo">Motivaciones</div>
-            <div class="perfil-col-item" id="r-motivacion">—</div>
+        <div class="p-col">
+          <div class="p-col-t">Hobbies e intereses</div>
+          <div class="p-col-v" id="r-hobbies">—</div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Motivaciones</div>
+            <div class="p-col-v" id="r-motivacion">—</div>
           </div>
-          <div style="margin-top:12px;">
-            <div class="perfil-col-titulo">Valores de la pirámide</div>
-            <div class="perfil-col-item" id="r-valor">—</div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Canales</div>
+            <div class="p-col-v" id="r-canal">—</div>
           </div>
-        </div>
-        <div class="perfil-col">
-          <div class="perfil-col-titulo">Retos</div>
-          <div class="perfil-col-item" id="r-reto">—</div>
-          <div style="margin-top:12px;">
-            <div class="perfil-col-titulo">Canales donde está</div>
-            <div class="perfil-col-item" id="r-canal">—</div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Valores pirámide</div>
+            <div class="p-col-v" id="r-valor">—</div>
           </div>
         </div>
-        <div class="perfil-col">
-          <div class="perfil-col-titulo">Objeciones comunes</div>
-          <div class="perfil-col-item" id="r-objecion">—</div>
-          <div style="margin-top:12px;">
-            <div class="perfil-col-titulo">Mayores temores</div>
-            <div class="perfil-col-item" id="r-temor">—</div>
+        <div class="p-col">
+          <div class="p-col-t">Retos profesionales</div>
+          <div class="p-col-v" id="r-reto-prof">—</div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Retos personales</div>
+            <div class="p-col-v" id="r-reto-pers">—</div>
           </div>
-          <div style="margin-top:12px;" id="r-hogar-wrap">
-            <div class="perfil-col-titulo">Hogar</div>
-            <div class="perfil-col-item" id="r-hogar">—</div>
+        </div>
+        <div class="p-col">
+          <div class="p-col-t">Objeciones comunes</div>
+          <div class="p-col-v" id="r-objeciones">—</div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Mayores temores</div>
+            <div class="p-col-v" id="r-temores">—</div>
           </div>
         </div>
       </div>
@@ -365,149 +418,130 @@
 var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxK8UCGYCQ3fr90fLZqXr6P0ScejYDhkzKxvSZO02F5KEMP8fLHA00o452EImp9I0ff/exec";
 var sel = {};
 
-function toggle(el, group) {
-  if (!sel[group]) sel[group] = [];
+function tog(el, g) {
+  if (!sel[g]) sel[g] = [];
   var v = el.textContent.trim();
-  if (el.classList.contains('on')) { el.classList.remove('on'); sel[group] = sel[group].filter(function(x){return x!==v;}); }
-  else { el.classList.add('on'); sel[group].push(v); }
-  updateProgress();
+  if (el.classList.contains('on')) { el.classList.remove('on'); sel[g] = sel[g].filter(function(x){return x!==v;}); }
+  else { el.classList.add('on'); sel[g].push(v); }
+  prog();
 }
 
-function pickOne(el, group) {
-  document.querySelectorAll('#'+group+'-chips .chip').forEach(function(c){c.classList.remove('on');});
+function one(el, g) {
+  document.querySelectorAll('#'+g+'-chips .chip').forEach(function(c){c.classList.remove('on');});
   el.classList.add('on');
-  sel[group] = [el.textContent.trim()];
-  updateProgress();
+  sel[g] = [el.textContent.trim()];
+  prog();
 }
 
-function getChips(group) { return sel[group] && sel[group].length ? sel[group] : null; }
+function gc(g) { return sel[g] && sel[g].length ? sel[g] : null; }
 
-function updateProgress() {
-  var done = 0, total = 9;
-  ['servicio','nombre','ocupacion','objetivo','reto','nombreEstudiante'].forEach(function(f){
-    if(document.getElementById(f).value.trim()) done++;
-  });
+function prog() {
+  var fields = ['nombreEstudiante','servicio','nombre','obj-profesional','reto-profesional'];
+  var done = fields.filter(function(f){ return document.getElementById(f).value.trim(); }).length;
   if (document.getElementById('genero').value) done++;
-  if (getChips('motivacion')) done++;
-  if (getChips('canal')) done++;
-  var pct = Math.round(done/total*100);
+  if (gc('ingresos')) done++;
+  var pct = Math.round(done/7*100);
   document.getElementById('pfill').style.width = pct+'%';
   document.getElementById('pct').textContent = pct+'%';
 }
 
-function tags(items, cls) {
-  if (!items || !items.length) return '<span style="color:#888;font-size:13px;">—</span>';
-  return items.map(function(v){return '<span class="rtag '+cls+'">'+v+'</span>';}).join('');
-}
+function txt(id) { return document.getElementById(id).value.trim() || '—'; }
 
-function listItems(arr) {
-  if (!arr || !arr.length) return '—';
-  return arr.map(function(v){ return '· ' + v; }).join('\n');
+function lines(str) {
+  if (!str || str === '—') return '<span>—</span>';
+  return str.split('\n').filter(function(l){return l.trim();}).map(function(l){return '<span>'+l.trim()+'</span>';}).join('');
 }
 
 function generate() {
   var nombre    = document.getElementById('nombre').value.trim() || 'Cliente Ideal';
   var edad      = document.getElementById('edad').value.trim();
-  var ocupacion = document.getElementById('ocupacion').value.trim() || '';
+  var ocupacion = document.getElementById('ocupacion').value.trim();
   var genero    = document.getElementById('genero').value;
-  var hobbies   = document.getElementById('hobbies').value.trim();
-  var temor     = document.getElementById('temor').value.trim();
+  var ciudad    = document.getElementById('ciudad').value.trim();
   var nombreEst = document.getElementById('nombreEstudiante').value.trim();
-  var ingresos  = (getChips('ingresos')||[]).join('');
 
-  // Initials avatar
-  var initials = nombre.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
-  document.getElementById('r-initials').textContent = initials || '?';
+  // Initials
+  var ini = nombre.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+  document.getElementById('r-initials').textContent = ini||'?';
 
   // Nombre y rol
   document.getElementById('r-nombre').textContent = nombre;
-  var rolParts = [];
-  if (ocupacion) rolParts.push(ocupacion);
-  if (edad) rolParts.push(edad);
-  if (genero && genero !== 'Puede ser cualquiera') rolParts.push(genero);
-  document.getElementById('r-rol').textContent = rolParts.join(' · ') || '—';
+  var rol = [];
+  if (ocupacion) rol.push(ocupacion);
+  if (edad) rol.push(edad);
+  if (genero && genero!=='Puede ser cualquiera') rol.push(genero);
+  document.getElementById('r-rol').textContent = rol.join(' · ')||'—';
 
   // Emprendimiento
-  document.getElementById('r-servicio').textContent = document.getElementById('servicio').value.trim() || '—';
-  document.getElementById('r-problema').textContent = document.getElementById('problema').value.trim() || '—';
+  document.getElementById('r-servicio').textContent = txt('servicio');
+  document.getElementById('r-problema').textContent = txt('problema');
 
-  // Datos demográficos — línea a línea como el ejemplo
+  // Demo
   var demo = [];
-  if (genero && genero !== 'Puede ser cualquiera') demo.push(genero + (edad ? ', ' + edad : ''));
+  if (genero && genero!=='Puede ser cualquiera') demo.push(genero+(edad?', '+edad:''));
   else if (edad) demo.push(edad);
-  if (ingresos) demo.push('Ingresos: ' + ingresos);
-  var hogarChips = getChips('hogar');
-  if (hogarChips) demo.push(hogarChips.join(', '));
-  document.getElementById('r-demograficos').innerHTML = demo.length
-    ? demo.map(function(d){ return '<span>'+d+'</span>'; }).join('')
-    : '<span>—</span>';
+  if (ciudad) demo.push(ciudad);
+  var ing = gc('ingresos');
+  if (ing) demo.push('Ingresos: '+ing[0]);
+  var civ = gc('civil'); if(civ) demo.push(civ[0]);
+  var hij = gc('hijos'); if(hij) demo.push(hij[0]);
+  var viv = gc('vivienda'); if(viv) demo.push(viv[0]);
+  document.getElementById('r-demo').innerHTML = demo.length
+    ? demo.map(function(d){return '<span>'+d+'</span>';}).join('') : '<span>—</span>';
 
-  // Objetivo
-  document.getElementById('r-objetivo').textContent = document.getElementById('objetivo').value.trim() || '—';
+  // Objetivos
+  document.getElementById('r-obj-prof').innerHTML = lines(txt('obj-profesional'));
+  document.getElementById('r-obj-pers').innerHTML = lines(txt('obj-personal'));
 
-  // Columna 1
-  document.getElementById('r-hobbies').innerHTML = hobbies
-    ? hobbies.split(',').map(function(h){ return '<span>'+h.trim()+'</span>'; }).join('')
-    : '<span>—</span>';
+  // Retos
+  document.getElementById('r-reto-prof').innerHTML = lines(txt('reto-profesional'));
+  document.getElementById('r-reto-pers').innerHTML = lines(txt('reto-personal'));
 
-  var motivacion = document.getElementById('motivacion-txt').value.trim();
-  document.getElementById('r-motivacion').innerHTML = motivacion
-    ? motivacion.split('\n').filter(function(l){return l.trim();}).map(function(l){return '<span>'+l+'</span>';}).join('')
-    : '<span>—</span>';
+  // Hobbies
+  var hob = document.getElementById('hobbies').value.trim();
+  document.getElementById('r-hobbies').innerHTML = hob
+    ? hob.split(',').map(function(h){return '<span>'+h.trim()+'</span>';}).join('') : '<span>—</span>';
 
-  var objecion = document.getElementById('objecion-txt').value.trim();
-  document.getElementById('r-objecion').innerHTML = objecion
-    ? objecion.split('\n').filter(function(l){return l.trim();}).map(function(l){return '<span>'+l+'</span>';}).join('')
-    : '<span>—</span>';
+  // Motivacion
+  document.getElementById('r-motivacion').innerHTML = lines(txt('motivacion'));
+
+  // Objeciones y temores
+  document.getElementById('r-objeciones').innerHTML = lines(txt('objeciones'));
+  document.getElementById('r-temores').innerHTML = lines(txt('temores'));
 
   // Canales
-  var canal = getChips('canal');
+  var canal = gc('canal');
   document.getElementById('r-canal').innerHTML = canal
-    ? canal.map(function(v){ return '<span>'+v+'</span>'; }).join('')
-    : '<span>—</span>';
+    ? canal.map(function(v){return '<span>'+v+'</span>';}).join('') : '<span>—</span>';
 
-  // Valores pirámide
-  var valor = getChips('valor');
+  // Valor pirámide
+  var valor = gc('valor');
   document.getElementById('r-valor').innerHTML = valor
-    ? valor.map(function(v){ return '<span>'+v+'</span>'; }).join('')
-    : '<span>—</span>';
-
-  // Reto
-  document.getElementById('r-reto').textContent = document.getElementById('reto').value.trim() || '—';
-
-  document.getElementById('r-temor').textContent = temor || '—';
-
-  var hogarEl = document.getElementById('r-hogar-wrap');
-  if (hogarChips) {
-    document.getElementById('r-hogar').innerHTML = hogarChips.map(function(v){ return '<span>'+v+'</span>'; }).join('');
-  } else {
-    hogarEl.style.display = 'none';
-  }
+    ? valor.map(function(v){return '<span>'+v+'</span>';}).join('') : '<span>—</span>';
 
   // Mostrar
-  var result = document.getElementById('result');
-  result.style.display = 'block';
-  setTimeout(function(){ result.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+  var res = document.getElementById('result');
+  res.style.display = 'block';
+  setTimeout(function(){ res.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
 
-  // Enviar a Google Sheets
+  // Enviar
   document.getElementById('submitBtn').disabled = true;
   document.getElementById('sendingMsg').style.display = 'block';
 
   var payload = {
     nombreEstudiante: nombreEst, nombre: nombre, edad: edad,
-    ocupacion: ocupacion, genero: genero,
-    ingresos:  ingresos,
-    hogar:     (getChips('hogar')||[]).join(', '),
-    servicio:  document.getElementById('servicio').value.trim(),
-    problema:  document.getElementById('problema').value.trim(),
-    objetivo:  document.getElementById('objetivo').value.trim(),
-    motivacion: document.getElementById('motivacion-txt').value.trim(),
-    hobbies:   hobbies,
-    reto:      document.getElementById('reto').value.trim(),
-    objecion:  document.getElementById('objecion-txt').value.trim(),
-    temor:     temor,
-    canal:     (getChips('canal')||[]).join(', '),
-    valor:     (getChips('valor')||[]).join(', ')
+    ocupacion: ocupacion, genero: genero, ciudad: ciudad,
+    ingresos: (gc('ingresos')||[]).join(''),
+    civilStatus: (gc('civil')||[]).join(''),
+    hijos: (gc('hijos')||[]).join(''),
+    vivienda: (gc('vivienda')||[]).join(''),
+    servicio: txt('servicio'), problema: txt('problema'),
+    objProfesional: txt('obj-profesional'), objPersonal: txt('obj-personal'),
+    retoProfesional: txt('reto-profesional'), retoPersonal: txt('reto-personal'),
+    hobbies: hob, motivacion: txt('motivacion'),
+    objeciones: txt('objeciones'), temores: txt('temores'),
+    canal: (gc('canal')||[]).join(', '),
+    valor: (gc('valor')||[]).join(', ')
   };
 
   fetch(SCRIPT_URL, { method:'POST', body:JSON.stringify(payload) })
