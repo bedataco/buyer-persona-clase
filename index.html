@@ -297,6 +297,39 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     </div>
   </div>
 
+  <!-- 8. REFLEXIÓN DEL EMPRENDEDOR -->
+  <div class="section">
+    <div class="sec-header"><div class="sec-num">8</div><div class="sec-title">Tu análisis como emprendedor</div></div>
+    <div class="q">
+      <label>¿En qué redes o canales crees que puedes encontrar a tu cliente? <span>(según su edad, ocupación y estilo de vida)</span></label>
+      <div class="chips" id="canal-chips">
+        <span class="chip" onclick="tog(this,'canal')">Instagram</span>
+        <span class="chip" onclick="tog(this,'canal')">LinkedIn</span>
+        <span class="chip" onclick="tog(this,'canal')">WhatsApp</span>
+        <span class="chip" onclick="tog(this,'canal')">Facebook</span>
+        <span class="chip" onclick="tog(this,'canal')">TikTok</span>
+        <span class="chip" onclick="tog(this,'canal')">Google / búsquedas</span>
+        <span class="chip" onclick="tog(this,'canal')">YouTube</span>
+        <span class="chip" onclick="tog(this,'canal')">Eventos / ferias</span>
+        <span class="chip" onclick="tog(this,'canal')">Boca a boca</span>
+      </div>
+    </div>
+    <div class="q">
+      <label>¿En qué nivel de la pirámide de valor consideras que está tu solución? <span>(puedes elegir varios)</span></label>
+      <div class="chips" id="valor-chips">
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Ahorra tiempo</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Reduce costo</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Simplifica</span>
+        <span class="chip" onclick="tog(this,'valor')">Funcional – Calidad</span>
+        <span class="chip" onclick="tog(this,'valor')">Emocional – Reduce ansiedad</span>
+        <span class="chip" onclick="tog(this,'valor')">Emocional – Bienestar</span>
+        <span class="chip" onclick="tog(this,'valor')">Emocional – Me premia</span>
+        <span class="chip" onclick="tog(this,'valor')">Cambio de vida – Motivación</span>
+        <span class="chip" onclick="tog(this,'valor')">Cambio de vida – Autorrealización</span>
+      </div>
+    </div>
+  </div>
+
   <button class="cta-btn" id="submitBtn" onclick="generate()">Ver mi Buyer Persona →</button>
   <div class="sending" id="sendingMsg">Enviando respuestas al profesor… ⏳</div>
   <div class="sent-ok" id="sentOk">✓ Respuestas enviadas correctamente al profesor</div>
@@ -352,6 +385,14 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
           <div class="p-col-gap">
             <div class="p-col-t">Motivaciones</div>
             <div class="p-col-v" id="r-motivacion">—</div>
+          </div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Canales donde está</div>
+            <div class="p-col-v" id="r-canal">—</div>
+          </div>
+          <div class="p-col-gap">
+            <div class="p-col-t">Valor de la pirámide</div>
+            <div class="p-col-v" id="r-valor">—</div>
           </div>
         </div>
         <div class="p-col">
@@ -475,6 +516,16 @@ function generate() {
   document.getElementById('r-objeciones').innerHTML = lines(txt('objeciones'));
   document.getElementById('r-temores').innerHTML = lines(txt('temores'));
 
+  // Canales
+  var canal = gc('canal');
+  document.getElementById('r-canal').innerHTML = canal
+    ? canal.map(function(v){return '<span>'+v+'</span>';}).join('') : '<span>—</span>';
+
+  // Valor pirámide
+  var valor = gc('valor');
+  document.getElementById('r-valor').innerHTML = valor
+    ? valor.map(function(v){return '<span>'+v+'</span>';}).join('') : '<span>—</span>';
+
   // Mostrar
   var res = document.getElementById('result');
   res.style.display = 'block';
@@ -495,7 +546,9 @@ function generate() {
     objProfesional: txt('obj-profesional'), objPersonal: txt('obj-personal'),
     retoProfesional: txt('reto-profesional'), retoPersonal: txt('reto-personal'),
     hobbies: hob, motivacion: txt('motivacion'),
-    objeciones: txt('objeciones'), temores: txt('temores')
+    objeciones: txt('objeciones'), temores: txt('temores'),
+    canal: (gc('canal')||[]).join(', '),
+    valor: (gc('valor')||[]).join(', ')
   };
 
   fetch(SCRIPT_URL, { method:'POST', body:JSON.stringify(payload) })
