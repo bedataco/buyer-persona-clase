@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Persona — Ruta UD Emprende</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p151:  #F7941D; /* Pantone 151 C — Naranja */
+    --p151l: #FEE8C8; /* Pantone 151 C tint */
+    --p151d: #D4750A; /* Pantone 151 C shade */
+    --p186:  #C8102E; /* Pantone 186 C — Rojo */
+    --p186l: #FFE0E5;
+    --p116:  #FFC72C; /* Pantone 116 C — Dorado */
+    --p116d: #8B6400;
+    --p116l: #FFF5CC;
+    --p9183: #FDF3E3; /* Pantone 9183 C — Crema */
+    --white: #FFFFFF;
+    --text:  #1A1A18;
+    --muted: #6B6560;
+    --border: rgba(0,0,0,0.1);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--p9183);color:var(--text);font-size:15px;line-height:1.6;}
+
+  .hero{background:var(--p151);padding:2.8rem 1.5rem 2.2rem;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.08);}
+  .hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:130px;height:130px;border-radius:50%;background:rgba(200,16,46,0.15);}
+  .hero-tag{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;margin-bottom:1rem;color:rgba(255,255,255,0.9);}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:0.6rem;color:white;}
+  .hero h1 em{font-style:italic;color:var(--p116);}
+  .hero p{font-size:14px;color:rgba(255,255,255,0.8);max-width:420px;margin:0 auto;}
+  .hero-bar{height:6px;background:linear-gradient(90deg,var(--p186) 0%,var(--p116) 100%);}
+
+  .progress-wrap{background:white;border-bottom:1px solid var(--border);padding:0.9rem 1.5rem;position:sticky;top:0;z-index:100;}
+  .progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+  .progress-label{font-size:12px;color:var(--muted);font-weight:500;}
+  .progress-pct{font-size:13px;font-weight:500;color:var(--p151);}
+  .progress-track{height:5px;background:#F5ECD8;border-radius:3px;}
+  .progress-fill{height:5px;background:var(--p151);border-radius:3px;transition:width 0.4s ease;width:0%;}
+
+  .main{max-width:680px;margin:0 auto;padding:2rem 1.25rem 4rem;}
+
+  .section{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;animation:fadeUp 0.4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .sec-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid var(--p151l);}
+  .sec-icon{width:34px;height:34px;border-radius:8px;background:var(--p151l);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .sec-title{font-size:13px;font-weight:500;color:var(--p151d);text-transform:uppercase;letter-spacing:0.07em;}
+
+  .q{margin-bottom:1.25rem;}
+  .q:last-child{margin-bottom:0;}
+  .q label{display:block;font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;}
+  .q label span{font-weight:400;color:var(--muted);font-size:13px;}
+  input[type="text"],textarea,select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:white;transition:border-color 0.2s;outline:none;}
+  input[type="text"]:focus,textarea:focus,select:focus{border-color:var(--p151);box-shadow:0 0 0 3px rgba(247,148,29,0.12);}
+  textarea{resize:vertical;min-height:72px;line-height:1.6;}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .smmlv-note{font-size:11px;color:var(--muted);margin-top:6px;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;}
+  .chip{padding:6px 14px;border-radius:20px;font-size:13px;border:1.5px solid var(--border);background:#F5ECD8;color:var(--muted);cursor:pointer;transition:all 0.15s;user-select:none;font-family:'DM Sans',sans-serif;}
+  .chip:hover{border-color:var(--p151);color:var(--p151d);background:var(--p151l);}
+  .chip.on{background:var(--p151l);border-color:var(--p151);color:var(--p151d);font-weight:500;}
+  .chip.single.on{background:var(--p151);border-color:var(--p151);color:white;}
+
+  .estudiante-field{background:var(--p116l);border:2px solid var(--p116);border-radius:var(--radius);padding:1.25rem 1.5rem;margin-bottom:1.25rem;}
+  .estudiante-badge{display:inline-flex;align-items:center;gap:5px;background:var(--p186);color:white;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;margin-bottom:10px;}
+  .estudiante-field label{font-size:14px;font-weight:500;color:var(--p116d);display:block;margin-bottom:8px;}
+
+  .cta-btn{width:100%;padding:15px;background:var(--p151);color:white;border:none;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.2s;margin-top:1.25rem;}
+  .cta-btn:hover{background:var(--p186);transform:translateY(-1px);}
+  .cta-btn:disabled{background:#aaa;cursor:not-allowed;transform:none;}
+  .sending{text-align:center;font-size:13px;color:var(--p151d);margin-top:8px;display:none;}
+  .sent-ok{text-align:center;font-size:13px;color:var(--p186);font-weight:500;margin-top:8px;background:var(--p116l);border:1px solid var(--p116);border-radius:8px;padding:9px;display:none;}
+
+  #result{display:none;margin-top:2rem;animation:fadeUp 0.5s ease both;}
+  .result-card{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .result-header{background:var(--p151);padding:1.5rem;display:flex;align-items:center;gap:16px;}
+  .result-avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;color:white;flex-shrink:0;}
+  .result-header-info p{font-size:18px;font-weight:500;color:white;font-family:'DM Serif Display',serif;}
+  .result-header-info span{font-size:13px;color:rgba(255,255,255,0.75);}
+  .result-body{padding:1.25rem;}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+  .rblock{background:var(--p9183);border-radius:var(--radius-sm);padding:10px 14px;border:1px solid var(--border);}
+  .rblock .rl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:5px;}
+  .rblock .rv{font-size:13px;color:var(--text);line-height:1.5;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+  .rtag{font-size:11px;font-weight:500;padding:2px 9px;border-radius:20px;}
+  .rtag.g{background:var(--p151l);color:var(--p151d);}
+  .rtag.a{background:var(--p116l);color:var(--p116d);}
+  .rtag.r{background:var(--p186l);color:var(--p186);}
+  .rtag.b{background:var(--p186l);color:var(--p186);}
+  .pyramid-section{margin-top:10px;background:var(--p151l);border-radius:var(--radius-sm);padding:12px 14px;border:1px solid rgba(247,148,29,0.3);}
+  .pyramid-section .rl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--p151d);margin-bottom:8px;}
+  .print-btn{width:100%;padding:12px;margin-top:1rem;background:white;border:2px solid var(--p151);border-radius:var(--radius-sm);color:var(--p151d);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.15s;}
+  .print-btn:hover{background:var(--p151l);}
+
+  .footer-bar{height:6px;background:linear-gradient(90deg,var(--p151) 0%,var(--p116) 50%,var(--p186) 100%);margin-top:3rem;}
+
+  @media(max-width:480px){.row2,.result-grid{grid-template-columns:1fr;}}
+  @media print{.progress-wrap,.cta-btn,.print-btn,.hero,.hero-bar,.estudiante-field,.sending,.sent-ok,.footer-bar{display:none!important;}.section{break-inside:avoid;}#result{display:block!important;}body{background:white;}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Ruta UD Emprende · Módulo 4</div>
+  <h1>Define tu<br><em>Buyer Persona</em></h1>
+  <p>Responde pensando en tu emprendimiento. Al final verás el perfil completo de tu cliente ideal.</p>
+</div>
+<div class="hero-bar"></div>
+
+<div class="progress-wrap">
+  <div class="progress-info">
+    <span class="progress-label">Progreso</span>
+    <span class="progress-pct" id="pct">0%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
+</div>
+
+<div class="main">
+
+  <div class="estudiante-field">
+    <div class="estudiante-badge">Para el profesor</div>
+    <label>Tu nombre completo (estudiante)</label>
+    <input type="text" id="nombreEstudiante" placeholder="Ej: Valentina Torres Mora" oninput="updateProgress()">
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-icon">💡</div><div class="sec-title">Tu emprendimiento</div></div>
+    <div class="q">
+      <label>¿Cuál es el nombre o idea de tu servicio/producto?</label>
+      <input type="text" id="servicio" placeholder="Ej: comida natural para perros, app de inventarios…" oninput="updateProgress()">
+    </div>
+    <div class="q">
+      <label>¿Qué problema principal resuelve? <span>(sé específico)</span></label>
+      <textarea id="problema" placeholder="Ej: Los perros que comen alimentos procesados tienden a tener problemas de salud…" oninput="updateProgress()"></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-icon">👤</div><div class="sec-title">¿Quién es tu cliente ideal?</div></div>
+    <div class="row2">
+      <div class="q"><label>Nombre ficticio</label><input type="text" id="nombre" placeholder="Ej: Maria Helena" oninput="updateProgress()"></div>
+      <div class="q"><label>Edad aproximada</label><input type="text" id="edad" placeholder="Ej: 38 años"></div>
+    </div>
+    <div class="row2">
+      <div class="q"><label>Ocupación o rol</label><input type="text" id="ocupacion" placeholder="Ej: Líder de Cartera" oninput="updateProgress()"></div>
+      <div class="q"><label>Género</label>
+        <select id="genero" onchange="updateProgress()">
+          <option value="">Selecciona…</option>
+          <option>Hombre</option><option>Mujer</option><option>Puede ser cualquiera</option>
+        </select>
+      </div>
+    </div>
+    <div class="q">
+      <label>Nivel de ingresos <span>(salarios mínimos colombianos)</span></label>
+      <div class="chips" id="ingresos-chips">
+        <span class="chip single" onclick="pickOne(this,'ingresos')">Menos de 1 SMMLV</span>
+        <span class="chip single" onclick="pickOne(this,'ingresos')">1 – 2 SMMLV</span>
+        <span class="chip single" onclick="pickOne(this,'ingresos')">2 – 4 SMMLV</span>
+        <span class="chip single" onclick="pickOne(this,'ingresos')">4 – 8 SMMLV</span>
+        <span class="chip single" onclick="pickOne(this,'ingresos')">Más de 8 SMMLV</span>
+      </div>
+      <div class="smmlv-note">SMMLV 2025 = $1.423.500 COP / mes · 2 SMMLV ≈ $2.85M · 4 SMMLV ≈ $5.7M</div>
+    </div>
+    <div class="q">
+      <label>Estado civil / hogar <span>(opcional)</span></label>
+      <div class="chips" id="hogar-chips">
+        <span class="chip single" onclick="pickOne(this,'hogar')">Soltero/a</span>
+        <span class="chip single" onclick="pickOne(this,'hogar')">En pareja</span>
+        <span class="chip single" onclick="pickOne(this,'hogar')">Casado/a con hijos</span>
+        <span class="chip single" onclick="pickOne(this,'hogar')">Casado/a sin hijos</span>
+        <span class="chip single" onclick="pickOne(this,'hogar')">Puede ser cualquiera</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-icon">🎯</div><div class="sec-title">¿Qué quiere lograr?</div></div>
+    <div class="q">
+      <label>¿Cuál es su objetivo principal?</label>
+      <textarea id="objetivo" placeholder="Ej: Llevar una vida tranquila con su familia y mascotas saludables…" oninput="updateProgress()"></textarea>
+    </div>
+    <div class="q">
+      <label>¿Qué lo motiva a buscar tu solución? <span>(puedes elegir varios)</span></label>
+      <div class="chips" id="motivacion-chips">
+        <span class="chip" onclick="toggle(this,'motivacion')">Ahorrar tiempo</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Ganar más dinero</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Reducir estrés</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Crecer profesionalmente</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Mejorar imagen</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Aprender algo nuevo</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Seguridad</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Bienestar propio y familiar</span>
+        <span class="chip" onclick="toggle(this,'motivacion')">Cuidar a otros (mascotas, hijos)</span>
+      </div>
+    </div>
+    <div class="q">
+      <label>Hobbies e intereses <span>(opcional)</span></label>
+      <input type="text" id="hobbies" placeholder="Ej: viajes, cocina saludable, deporte…">
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-icon">⚠️</div><div class="sec-title">¿Qué le preocupa?</div></div>
+    <div class="q">
+      <label>¿Cuál es su mayor reto hoy?</label>
+      <textarea id="reto" placeholder="Ej: No encuentra productos confiables…" oninput="updateProgress()"></textarea>
+    </div>
+    <div class="q">
+      <label>Objeciones para comprar <span>(puedes elegir varios)</span></label>
+      <div class="chips" id="objecion-chips">
+        <span class="chip" onclick="toggle(this,'objecion')">Es muy caro</span>
+        <span class="chip" onclick="toggle(this,'objecion')">No tengo tiempo</span>
+        <span class="chip" onclick="toggle(this,'objecion')">No confío en la marca</span>
+        <span class="chip" onclick="toggle(this,'objecion')">No lo necesito aún</span>
+        <span class="chip" onclick="toggle(this,'objecion')">Es difícil de usar/preparar</span>
+        <span class="chip" onclick="toggle(this,'objecion')">Ya tengo otra solución</span>
+        <span class="chip" onclick="toggle(this,'objecion')">No sé si funciona</span>
+      </div>
+    </div>
+    <div class="q">
+      <label>Mayor temor <span>(opcional)</span></label>
+      <input type="text" id="temor" placeholder="Ej: Que su mascota se enferme por mala alimentación…">
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-icon">📱</div><div class="sec-title">¿Cómo te va a encontrar?</div></div>
+    <div class="q">
+      <label>¿Dónde pasa más tiempo tu cliente? <span>(puedes elegir varios)</span></label>
+      <div class="chips" id="canal-chips">
+        <span class="chip" onclick="toggle(this,'canal')">Instagram</span>
+        <span class="chip" onclick="toggle(this,'canal')">LinkedIn</span>
+        <span class="chip" onclick="toggle(this,'canal')">WhatsApp</span>
+        <span class="chip" onclick="toggle(this,'canal')">Facebook</span>
+        <span class="chip" onclick="toggle(this,'canal')">TikTok</span>
+        <span class="chip" onclick="toggle(this,'canal')">Google / búsquedas</span>
+        <span class="chip" onclick="toggle(this,'canal')">YouTube</span>
+        <span class="chip" onclick="toggle(this,'canal')">Email</span>
+        <span class="chip" onclick="toggle(this,'canal')">Eventos / ferias</span>
+        <span class="chip" onclick="toggle(this,'canal')">Recomendaciones boca a boca</span>
+      </div>
+    </div>
+    <div class="q">
+      <label>¿Qué valor de la pirámide conecta con tu solución? <span>(puedes elegir varios)</span></label>
+      <div class="chips" id="valor-chips">
+        <span class="chip" onclick="toggle(this,'valor')">Funcional – Ahorra tiempo</span>
+        <span class="chip" onclick="toggle(this,'valor')">Funcional – Reduce costo</span>
+        <span class="chip" onclick="toggle(this,'valor')">Funcional – Simplifica</span>
+        <span class="chip" onclick="toggle(this,'valor')">Funcional – Organiza</span>
+        <span class="chip" onclick="toggle(this,'valor')">Funcional – Calidad</span>
+        <span class="chip" onclick="toggle(this,'valor')">Emocional – Reduce ansiedad</span>
+        <span class="chip" onclick="toggle(this,'valor')">Emocional – Bienestar</span>
+        <span class="chip" onclick="toggle(this,'valor')">Emocional – Me premia</span>
+        <span class="chip" onclick="toggle(this,'valor')">Cambio de vida – Motivación</span>
+        <span class="chip" onclick="toggle(this,'valor')">Cambio de vida – Autorrealización</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="cta-btn" id="submitBtn" onclick="generate()">Ver mi Buyer Persona →</button>
+  <div class="sending" id="sendingMsg">Enviando respuestas al profesor… ⏳</div>
+  <div class="sent-ok" id="sentOk">✓ Respuestas enviadas correctamente al profesor</div>
+
+  <div id="result">
+    <div class="result-card">
+      <div class="result-header">
+        <div class="result-avatar" id="r-avatar">?</div>
+        <div class="result-header-info">
+          <p id="r-nombre">—</p>
+          <span id="r-sub">—</span>
+        </div>
+      </div>
+      <div class="result-body">
+        <div class="result-grid">
+          <div class="rblock"><div class="rl">Servicio / producto</div><div class="rv" id="r-servicio">—</div></div>
+          <div class="rblock"><div class="rl">Problema que resuelves</div><div class="rv" id="r-problema">—</div></div>
+          <div class="rblock"><div class="rl">Objetivo del cliente</div><div class="rv" id="r-objetivo">—</div></div>
+          <div class="rblock"><div class="rl">Ingresos estimados</div><div class="rv" id="r-ingresos">—</div></div>
+          <div class="rblock"><div class="rl">Motivaciones</div><div class="rv" id="r-motivacion">—</div></div>
+          <div class="rblock"><div class="rl">Reto principal</div><div class="rv" id="r-reto">—</div></div>
+          <div class="rblock"><div class="rl">Objeciones comunes</div><div class="rv" id="r-objecion">—</div></div>
+          <div class="rblock"><div class="rl">Canales</div><div class="rv" id="r-canal">—</div></div>
+        </div>
+        <div id="r-hogar-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Hogar</div><div class="rv" id="r-hogar">—</div></div>
+        <div id="r-hobbies-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Hobbies e intereses</div><div class="rv" id="r-hobbies">—</div></div>
+        <div id="r-temor-wrap" style="display:none;margin-bottom:10px;" class="rblock"><div class="rl">Mayor temor</div><div class="rv" id="r-temor">—</div></div>
+        <div class="pyramid-section">
+          <div class="rl">Valores de la pirámide que conectan con tu solución</div>
+          <div class="tag-row" id="r-valor"></div>
+        </div>
+        <button class="print-btn" onclick="window.print()">Imprimir / Guardar como PDF 🖨️</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="footer-bar"></div>
+
+<script>
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxK8UCGYCQ3fr90fLZqXr6P0ScejYDhkzKxvSZO02F5KEMP8fLHA00o452EImp9I0ff/exec";
+var sel = {};
+
+function toggle(el, group) {
+  if (!sel[group]) sel[group] = [];
+  var v = el.textContent.trim();
+  if (el.classList.contains('on')) { el.classList.remove('on'); sel[group] = sel[group].filter(function(x){return x!==v;}); }
+  else { el.classList.add('on'); sel[group].push(v); }
+  updateProgress();
+}
+
+function pickOne(el, group) {
+  document.querySelectorAll('#'+group+'-chips .chip').forEach(function(c){c.classList.remove('on');});
+  el.classList.add('on');
+  sel[group] = [el.textContent.trim()];
+  updateProgress();
+}
+
+function getChips(group) { return sel[group] && sel[group].length ? sel[group] : null; }
+
+function updateProgress() {
+  var done = 0, total = 9;
+  ['servicio','nombre','ocupacion','objetivo','reto','nombreEstudiante'].forEach(function(f){
+    if(document.getElementById(f).value.trim()) done++;
+  });
+  if (document.getElementById('genero').value) done++;
+  if (getChips('motivacion')) done++;
+  if (getChips('canal')) done++;
+  var pct = Math.round(done/total*100);
+  document.getElementById('pfill').style.width = pct+'%';
+  document.getElementById('pct').textContent = pct+'%';
+}
+
+function tags(items, cls) {
+  if (!items || !items.length) return '<span style="color:#888;font-size:13px;">—</span>';
+  return items.map(function(v){return '<span class="rtag '+cls+'">'+v+'</span>';}).join('');
+}
+
+function generate() {
+  var nombre   = document.getElementById('nombre').value.trim() || 'Cliente Ideal';
+  var edad     = document.getElementById('edad').value.trim();
+  var ocupacion= document.getElementById('ocupacion').value.trim() || '—';
+  var genero   = document.getElementById('genero').value;
+  var hobbies  = document.getElementById('hobbies').value.trim();
+  var temor    = document.getElementById('temor').value.trim();
+  var nombreEst= document.getElementById('nombreEstudiante').value.trim();
+
+  var initials = nombre.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+  document.getElementById('r-avatar').textContent = initials || '?';
+  document.getElementById('r-nombre').textContent = nombre;
+  var sub = ocupacion;
+  if(edad) sub += ', '+edad;
+  if(genero && genero!=='Puede ser cualquiera') sub += ' · '+genero;
+  document.getElementById('r-sub').textContent = sub;
+  document.getElementById('r-servicio').textContent = document.getElementById('servicio').value.trim()||'—';
+  document.getElementById('r-problema').textContent = document.getElementById('problema').value.trim()||'—';
+  document.getElementById('r-objetivo').textContent = document.getElementById('objetivo').value.trim()||'—';
+  document.getElementById('r-reto').textContent     = document.getElementById('reto').value.trim()||'—';
+  document.getElementById('r-ingresos').textContent = (getChips('ingresos')||['—']).join('');
+  document.getElementById('r-motivacion').innerHTML = tags(getChips('motivacion'),'g');
+  document.getElementById('r-objecion').innerHTML   = tags(getChips('objecion'),'r');
+  document.getElementById('r-canal').innerHTML      = tags(getChips('canal'),'b');
+
+  var hogarChips = getChips('hogar');
+  if(hogarChips){ document.getElementById('r-hogar').innerHTML=tags(hogarChips,'g'); document.getElementById('r-hogar-wrap').style.display='block'; }
+  if(hobbies){ document.getElementById('r-hobbies').textContent=hobbies; document.getElementById('r-hobbies-wrap').style.display='block'; }
+  if(temor){ document.getElementById('r-temor').textContent=temor; document.getElementById('r-temor-wrap').style.display='block'; }
+
+  var valorChips = getChips('valor');
+  document.getElementById('r-valor').innerHTML = valorChips
+    ? valorChips.map(function(v){var c=v.includes('Emocional')?'a':v.includes('Cambio')?'r':'g'; return '<span class="rtag '+c+'">'+v+'</span>';}).join('')
+    : '<span style="color:#888;font-size:13px;">—</span>';
+
+  var result = document.getElementById('result');
+  result.style.display = 'block';
+  setTimeout(function(){ result.scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('sendingMsg').style.display = 'block';
+
+  var payload = {
+    nombreEstudiante: nombreEst, nombre: nombre, edad: edad,
+    ocupacion: ocupacion, genero: genero,
+    ingresos:  (getChips('ingresos')||[]).join(', '),
+    hogar:     (getChips('hogar')||[]).join(', '),
+    servicio:  document.getElementById('servicio').value.trim(),
+    problema:  document.getElementById('problema').value.trim(),
+    objetivo:  document.getElementById('objetivo').value.trim(),
+    motivacion:(getChips('motivacion')||[]).join(', '),
+    hobbies:   hobbies,
+    reto:      document.getElementById('reto').value.trim(),
+    objecion:  (getChips('objecion')||[]).join(', '),
+    temor:     temor,
+    canal:     (getChips('canal')||[]).join(', '),
+    valor:     (getChips('valor')||[]).join(', ')
+  };
+
+  fetch(SCRIPT_URL, { method:'POST', body:JSON.stringify(payload) })
+    .then(function(){
+      document.getElementById('sendingMsg').style.display = 'none';
+      document.getElementById('sentOk').style.display = 'block';
+    })
+    .catch(function(){
+      document.getElementById('sendingMsg').style.display = 'none';
+      document.getElementById('submitBtn').disabled = false;
+    });
+}
+</script>
+</body>
+</html>
